@@ -179,16 +179,40 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">creacion de pregunta</h4>
+        <h4 class="modal-title text-center text-primary">creacion de pregunta</h4>
       </div>
       <div class="modal-body">
         <form  id="form_create_pregunta" class="navbar-form" id="form-create-dueno" role="form">
         <center>
             <div class="input-group">
-                <span class="input-group-addon">¿?</span>
+                <span class="input-group-addon text-primary">¿?</span>
                 <input type="text" class="form-control" name="pregunta" id="pregunta" placeholder="escribe tu pregunta">
             </div>
             <button type="submit" class="btn btn-primary" id="storePregunta" >Crear</button>
+        </center>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+!-- Modal -->
+<div class="modal fade" id="modal-editar-pregunta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center text-success">Edicion de pregunta</h4>
+      </div>
+      <div class="modal-body">
+        <form  id="form_editar_pregunta" class="navbar-form" id="form-create-dueno" role="form">
+        <center>
+            <div class="input-group">
+                <span class="input-group-addon text-success">¿?</span>
+                <input type="text" class="form-control" name="pregunta"  placeholder="escribe tu pregunta">
+                <input type="hidden" name="id">
+            </div>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" id="updatePregunta" >Editar</button>
         </center>
       </form>
       </div>
@@ -223,12 +247,74 @@
                     Gráfica de rosca
                 </button>
             </div>
-           
+            <div id="resp_fecha" class="ocultar"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="modal-crear-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center text-primary">Formulario Ingreso Funcionario</h4>
+      </div>
+      <div class="modal-body">
+      <center>
+           <form id="form_crear_funcionario" class="navbar-form">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user-circle text-primary" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" name="name"  placeholder="NICK Funcionario">
+                </div>
+                <select name="rol" class="form-control">
+                    <option value="ESPECTADOR">ESPECTADOR</option>
+                    <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                </select>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal"  id="storeFuncionario" >Crear</button>
+           </form>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-editar-funcionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center text-success">Formulario Editar Funcionario</h4>
+      </div>
+      <div class="modal-body">
+      <center>
+           <form id="form_editar_funcionario">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user-circle text-success" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" name="name"  placeholder="NICK Funcionario">
+                    <input type="hidden" name="id">   
+                </div>
+                   <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key text-success" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" name="password"  >
+                </div>
+                <select id="rol" name="rol" class="form-control">
+                    <option value="ESPECTADOR">ESPECTADOR</option>
+                    <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                </select>
+                <button type="submit" class="btn btn-success btn-block" data-dismiss="modal"  id="updateFuncionario" >Editar</button>
+           </form>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <!-- /#page-wrapper -->
     </div>

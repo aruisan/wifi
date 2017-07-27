@@ -37,6 +37,7 @@ function respuesta($conexion, $id, $tipo)
 					<th>MALO</th>
 					<th>ACTIVO</th>
 					<th><i class="fa fa-line-chart fa-fw"></i></th>
+					<th><i class="fa fa-pencil fa-fw"></i></th>
 				</thead>
 				<tbody>
 				<?php  while($datos = $consulta->fetch_object()){ 
@@ -57,11 +58,16 @@ function respuesta($conexion, $id, $tipo)
 						<td><?= $r; ?></td>	
 						<td><?= $m; ?></td>	
 						<td>
-							<a id="<?= $datos->id_encuesta; ?>" class="editarPregunta btn <?= $clase; ?>"><?= $text; ?></a>
+							<a id="<?= $datos->id_encuesta; ?>" class="editarActivoPregunta btn <?= $clase; ?>"><?= $text; ?></a>
 						</td>
 						<td>
 							<a id="<?= $datos->id_encuesta; ?>" class="preguntaGraficos btn btn-danger" data-toggle="modal" data-target="#modal-demandado">
 								<i class="fa fa-bar-chart" aria-hidden="true"></i>
+							</a>
+						</td>
+						<td>
+							<a id="<?= $datos->id_encuesta; ?>" class="editarPregunta btn btn-default" data-toggle="modal" data-target="#modal-editar-pregunta">
+								<i class="fa fa-pencil fa-fw text-success"></i>
 							</a>
 						</td>
 					</tr>
@@ -143,6 +149,7 @@ function respuesta($conexion, $id, $tipo)
     }
     $('#storePregunta').click(function(event){ event.preventDefault();	storePregunta(this.id); });
     $('.editarPregunta').click(function(event){ event.preventDefault();	editarPregunta(this.id); });
+    $('.editarActivoPregunta ').click(function(event){ event.preventDefault();	editarActivoPregunta (this.id); });
     $('.preguntaGraficos').click(function(event){ event.preventDefault();	traerDatosPreguntas(this.id); });
     $('#bar, #pie, #donut').click(function(){ transformChart(this.id); });
     </script>

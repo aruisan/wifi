@@ -86,18 +86,30 @@ function preguntaGraficos($conexion, $id)
 
 function fechaGraficos($conexion, $ff_inicio, $ff_final)
 {
-	$inicio =  $ff_inicio.' 00:00:00';
-	$final = 	$ff_final.' 23:59:59';
-	$sql = "SELECT DATE_FORMAT(ff_hh, '%Y-%m-%d') AS fecha, COUNT(DATE_FORMAT(ff_hh, '%Y-%m-%d')) AS conteo FROM usuario
-			WHERE ff_hh between '$inicio' and '$final'
-			GROUP BY fecha";
-	$consulta = $conexion->query($sql);
+	$fecha = date('Y-m-d'); 	
 
-	while($datos = $consulta->fetch_object()){
-		$data[] = $datos;
+	if($ff_inicio == '' || $ff_final == '')
+		echo 0;
+	else if($ff_inicio >= $fecha || $ff_final >= $fecha){
+		echo 1;
+	}else if($ff_inicio > $ff_final){
+		echo 2;
+	}else{
+
+		$inicio =  $ff_inicio.' 00:00:00';
+		$final = 	$ff_final.' 23:59:59';
+
+		$sql = "SELECT DATE_FORMAT(ff_hh, '%Y-%m-%d') AS fecha, COUNT(DATE_FORMAT(ff_hh, '%Y-%m-%d')) AS conteo FROM usuario
+				WHERE ff_hh between '$inicio' and '$final'
+				GROUP BY fecha";
+		$consulta = $conexion->query($sql);
+
+		while($datos = $consulta->fetch_object()){
+			$data[] = $datos;
+		}
+
+		echo json_encode($data);
 	}
-
-	echo json_encode($data);
 }
 
 ?>

@@ -60,9 +60,23 @@ function  traerDatosfecha()
 
     $.post(url,datos+'&metodo='+metodo, function(data){
         console.log(data);
-        datos = jQuery.parseJSON(data);
-        fechaGrafico(datos);
-        $('#grafica_fecha').show();
+        if(data == 0){
+            $('#grafica_fecha').hide();
+            $('#resp_fecha').show().html('<div class="alert alert-danger text-center">las fechas estan vacias</div>');
+            setTimeout(function(){$('#resp_fecha').hide();  }, 3000);
+        }else if(data == 1){
+            $('#grafica_fecha').hide();
+            $('#resp_fecha').show().html('<div class="alert alert-danger text-center">las fechas son mayores a la fecha de hoy</div>');
+            setTimeout(function(){$('#resp_fecha').hide();  }, 3000);
+        }else if(data == 2){
+            $('#grafica_fecha').hide();
+            $('#resp_fecha').show().html('<div class="alert alert-danger text-center">las fecha Inicio es mayor a la fecha final</div>');
+             setTimeout(function(){$('#resp_fecha').hide();  }, 3000);
+        }else{
+            datos = jQuery.parseJSON(data);
+            fechaGrafico(datos);
+            $('#grafica_fecha').show();
+        }
     });
 }
 
