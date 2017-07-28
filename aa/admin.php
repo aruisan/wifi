@@ -1,5 +1,12 @@
 
+<?php
+    session_start();
+    if($_SESSION['rol'] != 'ADMINISTRADOR')
+    {
+        header('location:index.php');
+    }
 
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,35 +37,33 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- Load c3.css -->
-    <link href="assets/c3/c3.css" rel="stylesheet" type="text/css">
+    <link href="../assets/c3/c3.css" rel="stylesheet" type="text/css">
         <!-- MetisMenu CSS -->
-    	<link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    	<link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
          <!-- datatables -->
-        <link rel="stylesheet" href="assets/datatables/css/datatables.bootstrap.min.css">  
-        <link rel="stylesheet" href="assets/datatables/css/responsive.bootstrap.min.css">
-        <link rel="stylesheet" href="assets/datatables/css/buttons.datatables.min.css">
+        <link rel="stylesheet" href="../assets/datatables/css/datatables.bootstrap.min.css">  
+        <link rel="stylesheet" href="../assets/datatables/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/datatables/css/buttons.datatables.min.css">
 
         <!-- fa fa -->
-        <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/fontawesome/css/font-awesome.min.css">
 
 
     
 
     <!-- Custom CSS -->
-    <link href="assets/c3/c3.min.css" rel="stylesheet">
+    <link href="../assets/c3/c3.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="assets/sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets/sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
 
 
     <!-- Morris Charts CSS -->
-    <link href="assets/morrisjs/morris.css" rel="stylesheet">
+    <link href="../assets/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href="assets/mydesign/css/graficas.css">  
-
-   
+    <link rel="stylesheet" href="../assets/mydesign/css/graficas.css">  
 
 
 </head>
@@ -91,7 +96,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Editar Perfil</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
+                        <li><a href="index.php"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -329,39 +334,39 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
         <!-- Metis Menu Plugin JavaScript -->
-    	<script src="assets/metisMenu/metisMenu.min.js"></script>
+    	<script src="../assets/metisMenu/metisMenu.min.js"></script>
 
          <!-- dtatables-->
-        <script src="assets/datatables/js/jquery.datatables.min.js" ></script>
-  	    <script src="assets/datatables/js/datatables.bootstrap.min.js" ></script>
-  	    <script src="assets/datatables/js/datatables.responsive.min.js" ></script>
-  	    <script src="assets/datatables/js/datatables.buttons.min.js" ></script>
-        <script src="assets/datatables/js/buttons.flash.min.js" ></script>
-        <script src="assets/datatables/js/buttons.html5.min.js" ></script>
-        <script src="assets/datatables/js/buttons.print.min.js" ></script>
-        <script src="assets/datatables/js/jszip.min.js" ></script>
-        <script src="assets/datatables/js/pdfmake.min.js" ></script>
-        <script src="assets/datatables/js/vfs_fonts.js" ></script>
+        <script src="../assets/datatables/js/jquery.datatables.min.js" ></script>
+  	    <script src="../assets/datatables/js/datatables.bootstrap.min.js" ></script>
+  	    <script src="../assets/datatables/js/datatables.responsive.min.js" ></script>
+  	    <script src="../assets/datatables/js/datatables.buttons.min.js" ></script>
+        <script src="../assets/datatables/js/buttons.flash.min.js" ></script>
+        <script src="../assets/datatables/js/buttons.html5.min.js" ></script>
+        <script src="../assets/datatables/js/buttons.print.min.js" ></script>
+        <script src="../assets/datatables/js/jszip.min.js" ></script>
+        <script src="../assets/datatables/js/pdfmake.min.js" ></script>
+        <script src="../assets/datatables/js/vfs_fonts.js" ></script>
 
 
 	    <!-- Morris Charts JavaScript -->
-	    <script src="assets/raphael/raphael.min.js"></script>
-	    <script src="assets/morrisjs/morris.min.js"></script>
+	    <script src="../assets/raphael/raphael.min.js"></script>
+	    <script src="../assets/morrisjs/morris.min.js"></script>
 
 	    <!-- Custom Theme JavaScript -->
-	    <script src="assets/sb-admin/js/sb-admin-2.min.js"></script>
+	    <script src="../assets/sb-admin/js/sb-admin-2.min.js"></script>
 
          <!-- Latest compiled and minified JavaScript -->
    
     
         <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	   <!-- c3 -->
-        <script src="assets/c3/c3.js"></script>
+        <script src="../assets/c3/c3.js"></script>
 
 
      	<!-- design -->
-        <script src="assets/mydesign/js/admin.js"></script>
-       <script src="assets/mydesign/js/graficos.js"></script>
+        <script src="../assets/mydesign/js/admin.js"></script>
+       <script src="../assets/mydesign/js/graficos.js"></script>
 
 </body>
 
