@@ -147,10 +147,10 @@ function respuesta($conexion, $id, $tipo)
 					},
         });
     }
-    $('#storePregunta').click(function(event){ event.preventDefault();	storePregunta(this.id); });
-    $('.editarPregunta').click(function(event){ event.preventDefault();	editarPregunta(this.id); });
-    $('.editarActivoPregunta ').click(function(event){ event.preventDefault();	editarActivoPregunta (this.id); });
-    $('.preguntaGraficos').click(function(event){ event.preventDefault();	traerDatosPreguntas(this.id); });
-    $('#bar, #pie, #donut').click(function(){ transformChart(this.id); });
+    
+  
+
+    $('body').on("click", ".preguntaGraficos", function(e) { e.preventDefault(); traerDatosPreguntas(this.id); });
+    $('body').on("click", "#bar, #pie, #donut", function(e) { e.preventDefault(); transformChart(this.id); });
     </script>
 

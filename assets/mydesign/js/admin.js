@@ -4,15 +4,27 @@ $(document).ready(function(){
 
 
 
-///////////botones ////////////////////
+///////////botones menu////////////////////
 
 $('#visitantes').click(function(event){ event.preventDefault(); tablaUsuarios(); ocultarReportes();});
 $('#preguntas').click(function(event){ event.preventDefault(); tablaPreguntas(); ocultarReportes();});
 $('#fecha').click(function(event){ event.preventDefault(); cargarbuscarFecha(); });
 $('#usuario').click(function(event){ event.preventDefault(); tablaFuncionarios(); });
+
+
+////////////crud funcinarios
 $('#storeFuncionario').click(function(event){ event.preventDefault(); storeFuncionario(); });
 $('#updateFuncionario').click(function(event){ event.preventDefault(); updateFuncionario(); });
-$('#updatePregunta').click(function(event){ event.preventDefault(); updatePregunta(); });
+
+
+
+////////crud preguntas
+
+  $('body').on("click", "#storePregunta", function(e) { e.preventDefault(); storePregunta(this.id); });
+  $('body').on("click", ".editarPregunta", function(e) { e.preventDefault(); editarPregunta(this.id); });
+  $('body').on("click", ".editarActivoPregunta", function(e) { e.preventDefault(); editarActivoPregunta (this.id); });
+  $('body').on("click", "#updatePregunta", function(e) { e.preventDefault(); updatePregunta(); });
+
 
 
 ///////////////////////////////////funcionarios crud
@@ -167,6 +179,7 @@ function storePregunta()
 {
 		var data = $("#form_create_pregunta").serialize();
 	    var url = "php/crearPregunta.php";
+	    //console.log(1+1);
 
         $.post(url, data, function(data){
         	console.log(data);

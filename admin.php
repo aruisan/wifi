@@ -182,13 +182,13 @@
         <h4 class="modal-title text-center text-primary">creacion de pregunta</h4>
       </div>
       <div class="modal-body">
-        <form  id="form_create_pregunta" class="navbar-form" id="form-create-dueno" role="form">
+        <form  id="form_create_pregunta" class="navbar-form" role="form">
         <center>
             <div class="input-group">
                 <span class="input-group-addon text-primary">¿?</span>
                 <input type="text" class="form-control" name="pregunta" id="pregunta" placeholder="escribe tu pregunta">
             </div>
-            <button type="submit" class="btn btn-primary" id="storePregunta" >Crear</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="storePregunta" >Crear</button>
         </center>
       </form>
       </div>

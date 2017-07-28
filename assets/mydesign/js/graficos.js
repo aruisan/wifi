@@ -46,6 +46,7 @@ function traerDatosPreguntas(id)
     var url = "php/graficos.php";
     var metodo = "preguntaGraficos";
     $.post(url,{metodo:metodo, id:id}, function(data){
+        console.log(data);
         $('.tittle').text('Grafico de pregunta #'+id);
         datos = jQuery.parseJSON(data);
         preguntaGraficos(datos);
